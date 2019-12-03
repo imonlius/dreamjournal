@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         populateDate(dateText);
         closeButton.setBackgroundResource(0);
-        // closeButton.setOnClickListener(unused -> closeJournal(journalText));
+        closeButton.setOnClickListener(unused -> System.out.println("the app has been closed. "));
     }
 
     protected void populateDate(TextView text) {
@@ -33,12 +33,5 @@ public class MainActivity extends AppCompatActivity {
                 + " " + today.get(Calendar.DATE) + ", " + today.get(Calendar.YEAR);
         text.setText(formattedDate);
     }
-
-    //protected void closeJournal(EditText text) {
-    //    startActivity(new Intent(this, PuzzleActivity.java));
-    //    finish();
-    //}
-
-
 
 }

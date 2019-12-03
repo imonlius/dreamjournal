@@ -7,9 +7,11 @@
     <string name="close_button">Close</string>
     <string name="logo">Logo</string>
     <string name="calendar">Calendar</string>
+    <string name="share">Share</string>
     <string-array name="quotes">
         <item>\"Every age has its own poetry; in every age the circumstances of history choose a nation, a race, a class to take up the torch by creating situations that can be expressed or transcended only through poetry.\" \n\nJean-Paul Sartre</item>
         <item>\"And by the way, everything in life is writable about if you have the outgoing guts to do it, and the imagination to improvise. The worst enemy to creativity is self-doubt.\" \n\nSylvia Plath</item>
         <item>\"And once the storm is over you won\’t remember how you made it through, how you managed to survive. You won\’t even be sure, in fact, whether the storm is really over. But one thing is certain. When you come out of the storm you won\’t be the same person who walked in. That’s what this storm\’s all about.\" \n\nHaruki Murakami</item>
+        <item>\"Every one of us is losing something precious to us,\” he says after the phone stops ringing. \“Lost opportunities, lost possibilities, feelings we can never get back again. That\’s part of what it means to be alive. But inside our heads—at least that\’s where I imagine it—there\’s a little room where we store those memories. A room like the stacks in this library. And to understand the workings of our own heart we have to keep on making new reference cards. We have to dust things off every once in a while, let in fresh air, change the water in the flower vases. In other words, you\’ll live forever in your own private library.\" \n\nHaruki Murakami</item>
     </string-array>
 </resources>
