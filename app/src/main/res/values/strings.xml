@@ -3,4 +3,13 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="dream_journal_hint">What are you dreaming?</string>
+    <string name="close_button">Close</string>
+    <string name="logo">Logo</string>
+    <string name="calendar">Calendar</string>
+    <string-array name="quotes">
+        <item>\"Every age has its own poetry; in every age the circumstances of history choose a nation, a race, a class to take up the torch by creating situations that can be expressed or transcended only through poetry.\" \n\nJean-Paul Sartre</item>
+        <item>\"And by the way, everything in life is writable about if you have the outgoing guts to do it, and the imagination to improvise. The worst enemy to creativity is self-doubt.\" \n\nSylvia Plath</item>
+        <item>\"And once the storm is over you won\’t remember how you made it through, how you managed to survive. You won\’t even be sure, in fact, whether the storm is really over. But one thing is certain. When you come out of the storm you won\’t be the same person who walked in. That’s what this storm\’s all about.\" \n\nHaruki Murakami</item>
+    </string-array>
 </resources>

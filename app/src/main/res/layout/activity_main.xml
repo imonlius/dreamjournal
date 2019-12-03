@@ -6,28 +6,57 @@
     android:layout_height="match_parent"
     android:paddingTop="?attr/actionBarSize">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="0dp"
-        android:layout_marginEnd="0dp"
-        android:background="?android:attr/windowBackground"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/bottom_nav_menu" />
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="390dp"
+        android:layout_height="563dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <fragment
-        android:id="@+id/nav_host_fragment"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:defaultNavHost="true"
-        app:layout_constraintBottom_toTopOf="@id/nav_view"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/mobile_navigation" />
+        <TextView
+            android:id="@+id/journalDate"
+            android:layout_width="329dp"
+            android:layout_height="35dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/source_sans_pro_semibold"
+            android:gravity="bottom|start"
+            android:textAlignment="gravity"
+            android:textColor="#636B9C"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/journalText"
+            android:layout_width="331dp"
+            android:layout_height="486dp"
+            android:layout_marginBottom="72dp"
+            android:background="@android:color/transparent"
+            android:backgroundTint="#ABEAF7"
+            android:ems="10"
+            android:fontFamily="@font/source_sans_pro"
+            android:gravity="start|top"
+            android:hint="@string/dream_journal_hint"
+            android:importantForAutofill="no"
+            android:inputType="textLongMessage|textAutoCorrect|textMultiLine"
+            android:textSize="18sp"
+            android:typeface="normal" />
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/finishButton"
+        android:layout_width="78dp"
+        android:layout_height="74dp"
+        android:contentDescription="@string/close_button"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.428"
+        app:srcCompat="@drawable/button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

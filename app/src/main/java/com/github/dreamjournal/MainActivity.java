@@ -1,14 +1,15 @@
 package com.github.dreamjournal;
 
 import android.os.Bundle;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
+
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,15 +17,28 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        BottomNavigationView navView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-        NavigationUI.setupWithNavController(navView, navController);
+
+        TextView dateText = findViewById(R.id.journalDate);
+        EditText journalText = findViewById(R.id.journalText);
+        ImageButton closeButton = findViewById(R.id.finishButton);
+
+        populateDate(dateText);
+        closeButton.setBackgroundResource(0);
+        // closeButton.setOnClickListener(unused -> closeJournal(journalText));
     }
+
+    protected void populateDate(TextView text) {
+        Calendar today = new GregorianCalendar();
+        String formattedDate = today.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.US)
+                + " " + today.get(Calendar.DATE) + ", " + today.get(Calendar.YEAR);
+        text.setText(formattedDate);
+    }
+
+    //protected void closeJournal(EditText text) {
+    //    startActivity(new Intent(this, PuzzleActivity.java));
+    //    finish();
+    //}
+
+
 
 }
