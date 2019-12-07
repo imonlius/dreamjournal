@@ -51,6 +51,7 @@ public class DreamAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         Dream dream = dreams.get(position);
         ((DreamViewHolder) holder).dateText.setText(dream.getDate());
+        System.out.println("this is the date: " + dream.getDate());
         ((DreamViewHolder) holder).previewText.setText(dream.getPreview());
         // holder.dreamImage.setImage
 

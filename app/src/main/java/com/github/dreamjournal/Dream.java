@@ -12,6 +12,7 @@ public class Dream implements Serializable {
 
     private URL imageURL;
 
+
     protected Dream(String currentDate, String text, URL url) {
         dream = text;
         date = currentDate;
@@ -39,7 +40,11 @@ public class Dream implements Serializable {
     }
 
     protected String getPreview() {
-        return getDream().substring(0, 150).replaceAll("(\\n)", "");
+        String dreamPreview = getDream().replaceAll("(\\n)", "");
+        if (dreamPreview.length() < 150) {
+            return dreamPreview;
+        }
+        return dreamPreview.substring(0, 150);
     }
 
 }
