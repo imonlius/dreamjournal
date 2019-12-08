@@ -182,10 +182,10 @@ public class Dream implements Serializable {
     protected static List<Dream> getDreams(Context context) {
         String[] dreamFileNames  = context.fileList();
         List<Dream> dreams = new ArrayList<Dream>();
-        for (String dreamFileName : dreamFileNames) {
-            System.out.println(dreamFileName);
+        for (int j = dreamFileNames.length - 1; j >= 0; j--) {
+            System.out.println(dreamFileNames[j]);
             try {
-                FileInputStream fis = context.openFileInput(dreamFileName);
+                FileInputStream fis = context.openFileInput(dreamFileNames[j]);
                 ObjectInputStream ois = new ObjectInputStream(fis);
                 Object obj = ois.readObject();
 

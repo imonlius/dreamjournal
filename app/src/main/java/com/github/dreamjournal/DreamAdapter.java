@@ -50,8 +50,6 @@ public class DreamAdapter extends RecyclerView.Adapter {
         ((DreamViewHolder) holder).dateText.setText(dream.getDate());
         ((DreamViewHolder) holder).dreamImage.setImageBitmap(dream.getImage(holder.itemView.getContext()));
         ((DreamViewHolder) holder).previewText.setText(dream.getPreview());
-        // holder.dreamImage.setImage
-
     }
 
     @Override
