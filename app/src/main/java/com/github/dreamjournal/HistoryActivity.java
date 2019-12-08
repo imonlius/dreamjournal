@@ -23,7 +23,6 @@ public class HistoryActivity extends AppCompatActivity {
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // System.out.println("hello");
         super.onCreate(savedInstanceState);
         Context context = getApplicationContext();
         setContentView(R.layout.activity_history);

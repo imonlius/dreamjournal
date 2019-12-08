@@ -33,6 +33,7 @@ public class Dream implements Serializable {
     private String date;
 
     private URL imageURL;
+    private String imageFileName;
 
     /**
      * Constructs a new Dream object from the currentDate, dream text, and image URL
@@ -127,6 +128,9 @@ public class Dream implements Serializable {
      * @return File name of the Dream image
      */
     private String getImageFileName(){
+        if (imageFileName != null) {
+            return imageFileName;
+        }
         try {
             // Get an md5 hash of the Image URL as the file name
             // Using a hash enables a "unique" identifier token
@@ -134,11 +138,11 @@ public class Dream implements Serializable {
             // Convert md5 hash to a BigInteger to convert hash to an alphanumeric String
             BigInteger no = new BigInteger(1, md.digest(getImageURL().toString().getBytes()));
             // Append a ".bmp" extension
-            return no.toString(16) + ".bmp";
+            imageFileName = no.toString(16) + ".bmp";
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
-        return null;
+        return imageFileName;
     }
 
     /**
