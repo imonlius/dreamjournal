@@ -7,6 +7,10 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Locale;
+
 public class StartActivity extends AppCompatActivity {
 
     @Override
@@ -27,10 +31,16 @@ public class StartActivity extends AppCompatActivity {
         quoteText.setText(quotes[(int) (Math.random() * quotes.length)]);
     }
 
+    protected String getDate() {
+        Calendar today = new GregorianCalendar();
+        String formattedDate = today.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.US)
+                + " " + today.get(Calendar.DATE) + ", " + today.get(Calendar.YEAR);
+        return formattedDate;
+    }
+
     protected void close(Intent nextIntent) {
-        System.out.println("ok old man");
+        nextIntent.putExtra("date", getDate());
         startActivity(nextIntent);
-        // System.out.println("");
         finish();
     }
 

@@ -1,9 +1,10 @@
 package com.github.dreamjournal;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -17,24 +18,20 @@ public class DreamAdapter extends RecyclerView.Adapter {
 
     protected class DreamViewHolder extends RecyclerView.ViewHolder {
         protected ImageView dreamImage;
-        protected ImageView darkImage;
         protected TextView dateText;
-        protected Button shareButton;
         protected TextView previewText;
 
         protected DreamViewHolder(View view) {
             super(view);
             RelativeLayout relativeLayout = view.findViewById(R.id.relativeLayout);
             dreamImage = relativeLayout.findViewById(R.id.dreamImage);
-            darkImage = relativeLayout.findViewById(R.id.darkImage);
             dateText = relativeLayout.findViewById(R.id.dateText);
-            shareButton = relativeLayout.findViewById(R.id.shareButton);
             previewText = relativeLayout.findViewById(R.id.previewText);
 
-            shareButton.setOnClickListener(unused -> System.out.println("Shared! :) not really. "));
+            view.setOnClickListener(unused -> close(view.getContext(), dateText.getText().toString()));
         }
-
     }
+
     protected DreamAdapter(List<Dream> dreamsToo) {
         dreams = dreamsToo;
     }
@@ -51,7 +48,7 @@ public class DreamAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         Dream dream = dreams.get(position);
         ((DreamViewHolder) holder).dateText.setText(dream.getDate());
-        System.out.println("this is the date: " + dream.getDate());
+        ((DreamViewHolder) holder).dreamImage.setImageBitmap(dream.getImage(holder.itemView.getContext()));
         ((DreamViewHolder) holder).previewText.setText(dream.getPreview());
         // holder.dreamImage.setImage
 
@@ -60,5 +57,11 @@ public class DreamAdapter extends RecyclerView.Adapter {
     @Override
     public int getItemCount() {
         return dreams.size();
+    }
+
+    protected void close(Context context, String date) {
+        Intent nextIntent = new Intent(context, MainActivity.class);
+        nextIntent.putExtra("date", date);
+        context.startActivity(nextIntent);
     }
 }

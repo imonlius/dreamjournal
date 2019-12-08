@@ -15,10 +15,10 @@ public class DreamWatcher implements TextWatcher {
     private Context context;
     private URL url;
 
-    public DreamWatcher(String d, Context c, URL u) {
-        date = d;
+    public DreamWatcher(Dream dream, Context c) {
+        date = dream.getDate();
+        url = dream.getImageURL();
         context = c;
-        url = u;
     }
 
     @Override
@@ -34,13 +34,15 @@ public class DreamWatcher implements TextWatcher {
     public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
         Dream dream = new Dream(date, charSequence.toString(), url);
         String filename = date + ".dream";
+        System.out.println(filename);
         try {
             FileOutputStream fos = context.openFileOutput(filename, Context.MODE_PRIVATE);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(dream);
             oos.close();
         } catch (IOException e) {
-            System.out.println("Help please. <3");
+            e.printStackTrace();
+            System.out.println("We've hit a snag: IO EXCEPTION (onTextChanged)");
         }
 
     }
