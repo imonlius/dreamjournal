@@ -25,8 +25,6 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-        TextView quoteText = findViewById(R.id.quoteText);
-
         ImageButton closeButton = findViewById(R.id.closeButton);
         // Make background transparent for closeButton
         closeButton.setBackgroundResource(0);
@@ -41,6 +39,7 @@ public class StartActivity extends AppCompatActivity {
 
         // Retrieve random quote from R.array.quotes to display
         String[] quotes = getResources().getStringArray(R.array.quotes);
+        TextView quoteText = findViewById(R.id.quoteText);
         quoteText.setText(quotes[(int) (Math.random() * quotes.length)]);
     }
 
