@@ -7,8 +7,9 @@
 
     <ImageButton
         android:id="@+id/homeButton"
-        android:layout_width="96dp"
-        android:layout_height="80dp"
+        android:layout_width="68dp"
+        android:layout_height="67dp"
+        android:contentDescription="@string/close_button"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="@+id/historyView"
         app:layout_constraintEnd_toEndOf="parent"
